@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
-  root :to =>"public/homes#top"
-  get "about"=>"public/homes#about" 
-  scope module: :public do
-  resources :items, only: [:index,:show]
-  end
+
   devise_for :customers,skip: [:password], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+scope module: :public do
+  root :to =>"homes#top"
+  get "about"=>"homes#about"
 
-  get 'customers/my_page'
+  resources :items, only: [:index,:show]
+
+  get 'customers/my_page'=>"customers#show"
   get 'customers/information/edit'
   patch 'customers/information'
   get 'customers/unsubscribe'
@@ -23,16 +24,15 @@ Rails.application.routes.draw do
   get 'orders/complete'
 
   resources :deliveries, only: [:index,:edit,:create,:destroy,:update]
-
+end
 
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
 
-
   get "admin"=>'admin/homes#top'
-  
+
   namespace :admin do
     resources :items, except: [:destroy]
   end
@@ -47,10 +47,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :orders, only: [:show,:update]
   end
-  
+
   namespace :admin do
     resources :orders_details, only: [:update]
   end
-  
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
