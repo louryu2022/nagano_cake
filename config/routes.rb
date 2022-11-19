@@ -30,7 +30,6 @@ end
     sessions: "admin/sessions"
   }
 
-
   get "admin"=>'admin/homes#top'
 
   namespace :admin do
