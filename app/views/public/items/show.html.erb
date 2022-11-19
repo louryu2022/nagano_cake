@@ -1,2 +1,15 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class='col-md-2'>
+      <%= render 'admin/genres/search' %>
+    </div>
+    <div class='col-md-10'>
+      <% @items.each do |items| %>
+      <p>商品名</p><%= item.name %>
+      <p>商品説明文</p><%= item.introduction %>
+      <p>¥</p><%= item.price %>*1.1<p>税込</p>
+      <%= f.select :amount, [['1',1], ['2',2], ['3',3]] %>
+      <% end %>
+    </div>
+  </div>
+</div>
