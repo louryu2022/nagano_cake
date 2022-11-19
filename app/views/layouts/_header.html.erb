@@ -1,13 +1,13 @@
 <nav>
   <div class="container">
-    <div>
-      <a href="/"><span>LOGO</span></a>
+    <div class="border border-dark" style="width: 150px;">
+      <a href="/"><h1>LOGO</h1></a>
     </div>
     <% if customer_signed_in? %>
     <button class="btn btn-danger"><%= link_to 'マイページ',items_path %></button>
     <button class="btn btn-danger"><%= link_to '商品一覧',items_path %></button>
     <button class="btn btn-danger"><%= link_to 'カート',cart_items_path %></button>
-    <button class="btn btn-danger"><%= link_to 'ログアウト',destroy_customer_session_path %></button>
+    <button class="btn btn-danger"><%= link_to 'ログアウト',destroy_customer_session_path, method: :delete %></button>
     <% else %>
     <div class="text-right">
     <button class="btn btn-info"><%= link_to 'About',about_path %></button>
