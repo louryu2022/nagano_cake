@@ -1,5 +1,7 @@
 class Admin::ItemsController < ApplicationController
   def index
+    @items = Item.all
+    @item = Item.new
   end
 
   def new
@@ -13,13 +15,18 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
-    
+    @item = Item.find(params[:id])
+    @item_new = Item.new
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to admin_item_path(@item)
   end
   
   private
