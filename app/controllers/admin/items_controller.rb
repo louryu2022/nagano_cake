@@ -13,6 +13,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
+    
   end
 
   def edit
