@@ -5,9 +5,10 @@
     </div>
     <div class='col-md-10'>
       <h1>商品一覧<h4>(全8件)</h4></h1>
-      <% @items.each do |items| %>
-      <p>商品名</p><%= item.name %>
-      <p>¥</p><%= item.price %>
+      <% @items.each do |item| %>
+      <%= image_tag item.image, size: "200x200" %>
+      <%= link_to item.name, item %>
+      <p>￥<%= item.price %></p>
       <% end %>
     </div>
   </div>
