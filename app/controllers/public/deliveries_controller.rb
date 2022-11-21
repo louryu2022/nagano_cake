@@ -2,6 +2,7 @@ class Public::DeliveriesController < ApplicationController
   def index
     @deliveries = Delivery.all
     @delivery = Delivery.new
+    @current_customer = current_customer
   end
 
   def edit
@@ -10,7 +11,7 @@ class Public::DeliveriesController < ApplicationController
 
   def create
     @delivery = Delivery.new(delivery_params)
-    @delivery.save
+    @delivery.save!
     redirect_to request.referer
   end
 
