@@ -1,12 +1,12 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
-    <div class='col-md-3'>
+    <div class='col-md-8'>
       <h2>配送先登録/一覧</h2>
 
       <%= form_with model: @delivery, url: deliveries_path do |f| %>
         <table class="table">
           <tbody>
-
+               <%= f.hidden_field :customer_id, :value => @current_customer.id %>
             <tr>
               <td>郵便番号（ハイフンなし）</td>
               <td><%= f.text_field :postal_code, class: 'form-control' %></td>
@@ -14,7 +14,7 @@
 
             <tr>
               <td>住所</td>
-              <td><%= f.text_area :address, class: 'form-control', cols="40"%></td>
+              <td><%= f.text_area :address,cols:10, class: 'form-control' %></td>
             </tr>
 
             <tr>
