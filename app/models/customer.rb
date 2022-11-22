@@ -16,5 +16,7 @@ class Customer < ApplicationRecord
   validates :address, presence: true
   validates :telephone_number, presence: true
 
-
+def full_name
+    self.last_name + "" + self.first_name
+  end
 end
