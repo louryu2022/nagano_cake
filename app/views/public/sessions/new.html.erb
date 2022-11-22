@@ -1,26 +1,28 @@
-<h2>Log in</h2>
+<div class="container">
+  <div class="row">
+    <div class="col mx-auto">
+      <h3>ログイン</h3>
 
-<%= form_with model: @customer, url: customer_session_path do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <h4>会員の方はこちらからログイン</h4>
+      <%= form_with model: @customer, url: customer_session_path do |f| %>
+        <%= render "public/shared/error_messages", resource: resource %>
+        <div class="field">
+          <label class="email">メールアドレス</label>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@example.com" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+        <div class="field">
+          <label class="password">パスワード</label>
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+        <div class="actions">
+          <%= f.submit "ログイン", class:"btn btn-primary" %>
+        </div>
+      <% end %>
+
+      <h4>会員登録がお済い方</h4>
+      <p><%= link_to "こちら", new_customer_registration_path %>から新規登録を行ってください。</p>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+</div>

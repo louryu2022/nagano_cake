@@ -7,7 +7,7 @@
         <%= f.hidden_field :customer_id, :value => @current_customer.id %>
         <table class="table">
           <tbody>
-
+               <%= f.hidden_field :customer_id, :value => @current_customer.id %>
             <tr>
               <td>郵便番号（ハイフンなし）</td>
               <td><%= f.text_field :postal_code, class: 'form-control' %></td>
@@ -15,9 +15,9 @@
 
             <tr>
               <td>住所</td>
-              <td><%= f.text_area :address, class: 'form-control'%></td>
+              <td><%= f.text_area :address,cols:10, class: 'form-control' %></td>
             </tr>
-
+            
             <tr>
               <td>宛名</td>
               <td><%= f.text_field :name, class: 'form-control' %></td>
