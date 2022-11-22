@@ -1,4 +1,3 @@
-
 ja:
     enums:
       order:
@@ -8,10 +7,6 @@ ja:
           production: "製作中"
           preparation: "発送準備"
           sent: "発送済み"
-
-  ja:
-    enums:
-      order:
         payment_method:
           credit_card: "クレジットカード"
           transfer: "銀行振込"
