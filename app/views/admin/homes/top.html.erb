@@ -21,15 +21,14 @@
       <tr>
         <td><%= link_to order.set_date, admin_order_path(order.id) %></td>
         
-        <td><%= order.customer.last_name %>
-            <%= order.customer.first_name %></td>
+        <td><%= order.customer.full_name %></td>
         
         <% order.order_details.each do |order_detail|%>
           <% @order_total += order_detail.amount %>
         <% end %>
         <td><%= @order_total %></td>
         
-        <td><%= order.status %></td>
+        <td><%= order.status_i18n %></td>
         
       </tr>
       <% end %>
