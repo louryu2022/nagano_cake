@@ -4,6 +4,7 @@
       <h2>配送先登録/一覧</h2>
 
       <%= form_with model: @delivery, url: deliveries_path do |f| %>
+        <%= f.hidden_field :customer_id, :value => @current_customer.id %>
         <table class="table">
           <tbody>
                <%= f.hidden_field :customer_id, :value => @current_customer.id %>
@@ -16,7 +17,7 @@
               <td>住所</td>
               <td><%= f.text_area :address,cols:10, class: 'form-control' %></td>
             </tr>
-
+            
             <tr>
               <td>宛名</td>
               <td><%= f.text_field :name, class: 'form-control' %></td>
