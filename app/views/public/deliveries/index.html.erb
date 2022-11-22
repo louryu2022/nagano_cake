@@ -17,7 +17,7 @@
               <td>住所</td>
               <td><%= f.text_area :address,cols:10, class: 'form-control' %></td>
             </tr>
-            
+
             <tr>
               <td>宛名</td>
               <td><%= f.text_field :name, class: 'form-control' %></td>
@@ -44,7 +44,9 @@
                <td><%= delivery.postal_code %></td>
                <td><%= delivery.address %></td>
                <td><%= delivery.name %></td>
-               <td></td>
+               <td><%= link_to "編集する", edit_delivery_path(delivery), class: 'btn btn-sm btn-success' %>
+                   <%= link_to "削除する", delivery_path(delivery), class: 'btn btn-sm btn-danger', method: :delete, "data-confirm" => "本当に削除しますか？" %>
+               </td>
              </tr>
            <% end %>
           </tbody>
