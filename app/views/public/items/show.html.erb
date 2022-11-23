@@ -9,7 +9,7 @@
     <div class='col-md-7'>
       <h2><%= @item.name %></h2>
       <p><%= @item.introduction %></p>
-      <p><%= (@item.price*1.1).floor %>(税込)</p>
+      <p><%= (@item.price*1.1).floor.to_s(:delimited) %>(税込)</p>
       <% if customer_signed_in? %>
         <%= form_with model: @cart_item, url: cart_items_path do |f| %>
           <%= f.hidden_field :item_id, :value => @item.id %>
