@@ -9,12 +9,14 @@
     <div class='col-md-7'>
       <h2><%= @item.name %></h2>
       <p><%= @item.introduction %></p>
-      <p><%= (@item.price*1.1).floor %>(税込)</p>
-      <%= form_with model: @cart_item, url: cart_items_path do |f| %>
-      <%= f.hidden_field :item_id, :value => @item.id %>
-      <%= f.hidden_field :customer_id, :value => @current_customer.id %>
-      <%= f.select :amount, *[1..10] %>
-      <%= f.submit 'カートに入れる', class: "btn btn-success" %>
+      <p><%= (@item.price*1.1).floor.to_s(:delimited) %>(税込)</p>
+      <% if customer_signed_in? %>
+        <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+          <%= f.hidden_field :item_id, :value => @item.id %>
+          <%= f.hidden_field :customer_id, :value => @current_customer.id %>
+          <%= f.select :amount, *[1..10] %>
+          <%= f.submit 'カートに入れる', class: "btn btn-success" %>
+        <% end %>
       <% end %>
     </div>
   </div>

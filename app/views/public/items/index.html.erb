@@ -8,8 +8,9 @@
       <% @items.each do |item| %>
       <%= image_tag item.image, size: "200x200" %>
       <%= link_to item.name, item %>
-      <p>￥<%= item.price %></p>
+      <p>￥<%= item.price.to_s(:delimited) %></p>
       <% end %>
+      <%= paginate @items %>
     </div>
   </div>
 </div>

@@ -16,8 +16,26 @@
       </div>
       <div>
         <h1>新着商品</h1>
-        <div class="text-right">
-        <%= link_to '全ての商品を見る>',items_path %>
+        <div class="row">
+          <div class='col-md-12'>
+            <% @items.each do |item| %>
+            <div class='col-md-3'>
+              <div>
+                <%= image_tag item.image, size: "200x200" %>
+              </div>
+              <div>
+                <%= link_to item.name, item %>
+              </div>
+              <div>
+                ￥<%= item.price.to_s(:delimited) %>
+              </div>
+            </div>
+            <% end %>
+            </div>
+          </table>
+          <div class="text-right">
+            <%= link_to '全ての商品を見る>',items_path %>
+          </div>
         </div>
       </div>
     </div>
