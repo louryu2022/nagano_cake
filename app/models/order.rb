@@ -7,6 +7,7 @@ class Order < ApplicationRecord
     created_at.strftime("%Y/%m/%d %H:%M:%S")
   end
 
+
   def full_name
     self.first_name + self.last_name
   end
