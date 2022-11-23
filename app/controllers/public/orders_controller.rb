@@ -33,6 +33,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.save!
     @cart_items = current_customer.cart_items
+    
     @cart_items.destroy_all
     redirect_to orders_complete_path
   end
