@@ -7,8 +7,11 @@ class Admin::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    @order.update(order_params)
-    redirect_to request.referer
+    @order_details = OrderDetail.where(order_id: params[:id])
+    if @order.update(order_params)
+      @order_details.update_all(making_status: 1) if @order.status == "confirmation"# 注文ステータスを「入金確認」に変えると制作ステータスが「制作待ち」に変わる
+    end
+    redirect_to admin_order_path(@order)
   end
   
   private

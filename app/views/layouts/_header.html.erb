@@ -16,7 +16,7 @@
         <button type="button" class="btn btn-outline-secondary"><%= link_to '会員一覧',admin_customers_path %></button>
         <button type="button" class="btn btn-outline-secondary"><%= link_to '注文一覧',admin_path %></button>
         <button type="button" class="btn btn-outline-secondary"><%= link_to 'ジャンル一覧',admin_genres_path %></button>
-        <button type="button" class="btn btn-outline-secondary"><%= link_to 'ログアウト',destroy_customer_session_path, method: :delete %></button>
+        <button type="button" class="btn btn-outline-secondary"><%= link_to 'ログアウト',destroy_admin_session_path, method: :delete %></button>
       </div>
     <% else %>
       <div class="text-right">
