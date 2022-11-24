@@ -36,22 +36,14 @@ end
 
   namespace :admin do
     resources :items, except: [:destroy]
-  end
 
-  namespace :admin do
     resources :genres, only: [:index,:create,:edit,:update]
-  end
 
-  namespace :admin do
     resources :customers, only: [:index,:show,:edit,:update]
-  end
-  namespace :admin do
+  
     resources :orders, only: [:show,:update]
-  end
 
-  namespace :admin do
-    resources :orders_details, only: [:update]
+    resources :order_details, only: [:update]
   end
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
