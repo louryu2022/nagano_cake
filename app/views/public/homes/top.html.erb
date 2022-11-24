@@ -21,10 +21,12 @@
             <% @items.each do |item| %>
             <div class='col-md-3'>
               <div>
-                <%= image_tag item.image, size: "200x200" %>
+                <%= link_to item_path(item.id) do %>
+                  <%= image_tag item.image, size: "200x200" %>
+                <% end %>
               </div>
               <div>
-                <%= link_to item.name, item %>
+                <%= item.name %>
               </div>
               <div>
                 ￥<%= item.price.to_s(:delimited) %>
