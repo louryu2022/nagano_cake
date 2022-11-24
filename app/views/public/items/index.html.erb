@@ -6,9 +6,11 @@
     <div class='col-md-10'>
       <h1>商品一覧<h4>(全8件)</h4></h1>
       <% @items.each do |item| %>
-      <%= image_tag item.image, size: "200x200" %>
-      <%= link_to item.name, item %>
-      <p>￥<%= item.price.to_s(:delimited) %></p>
+        <%= link_to item_path(item.id) do %>
+          <%= image_tag item.image, size: "200x200" %>
+        <% end %>
+        <%= item.name %>
+        <p>￥<%= item.price.to_s(:delimited) %></p>
       <% end %>
       <%= paginate @items %>
     </div>
