@@ -7,7 +7,7 @@ class Admin::GenresController < ApplicationController
   def show
   @items = Item.all
   @search = Genre.find(params[:id])
-  @searchs = @search.items
+  @searchs = @search.items.page(params[:page]).per(8).order('created_at DESC')
   end
 
   def create
