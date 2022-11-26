@@ -1,22 +1,30 @@
 <div class="container">
   <div class="row">
     <div class='col-md-2'>
-      <%= render 'admin/genres/search' %>
+      <%= render 'admin/genres/search', genres: @genres %>
     </div>
-    <div class='col-md-3'>
+    <div class='col-md-4'>
       <%= image_tag @item.image, size: "200x200" %>
     </div>
-    <div class='col-md-7'>
+    <div class='col-md-6'>
       <h2><%= @item.name %></h2>
-      <p><%= @item.introduction %></p>
-      <p><%= (@item.price*1.1).floor.to_s(:delimited) %>(税込)</p>
+      <p><%= @item.introduction %></p><br>
+      <h4 style="display:inline;"><%= "￥"+(@item.price*1.1).floor.to_s(:delimited) %></h4><p style="display:inline;">(税込)</p>
       <% if customer_signed_in? %>
-        <%= form_with model: @cart_item, url: cart_items_path do |f| %>
-          <%= f.hidden_field :item_id, :value => @item.id %>
-          <%= f.hidden_field :customer_id, :value => @current_customer.id %>
-          <%= f.select :amount, *[1..10] %>
-          <%= f.submit 'カートに入れる', class: "btn btn-success" %>
-        <% end %>
+      <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+      <%= f.hidden_field :item_id, :value => @item.id %>
+      <%= f.hidden_field :customer_id, :value => @current_customer.id %>
+      <div class = 'container-fluid'>
+        <div class="row">
+          <div class='col-md-2'>
+            <%= f.select :amount, *[1..10] %>
+          </div>
+          <div class='col-md-3'>
+            <%= f.submit 'カートに入れる', class: "btn btn-success" %>
+          </div>
+        </div>
+      </div>
+      <% end %>
       <% end %>
     </div>
   </div>
