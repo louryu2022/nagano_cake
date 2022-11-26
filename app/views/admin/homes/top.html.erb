@@ -1,40 +1,64 @@
 <div class="container">
+  <div class="m-md-2"><br></div>
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-
-    <span style="background-color:#DDD">
+    <div class="col-md-2"></div>
+    <h4 class="col-md-2 mx-auto text-center" style="background-color:#DDD">
       <strong>注文履歴一覧</strong>
-    </span>
+    </h4>
+
+    <div class="col-md-8"></div>
+  </div>
+  
+  <div class="m-md-2"><br></div>
     
-    <table>
-      <thead bgcolor="#EEE">
-        <tr>
-          <th>購入日時</th>
-          <th>購入者</th>
-          <th>注文個数</th>
-          <th>注文ステータス</th>
-        </tr>
-      </thead>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-3 mx-auto text-left">
+        <strong>購入日時</strong>
+      </div>
+      <div class="col-md-2 mx-auto text-left">
+        <strong>購入者</strong>
+      </div>
+      <div class="col-md-2 mx-auto text-left">
+        <strong>注文個数</strong>
+      </div>
+      <div class="col-md-3 mx-auto text-left">
+        <strong>注文ステータス</strong>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    
+  <% @orders.each do |order| %>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-3 mx-auto text-left">
+        <%= link_to order.set_date, admin_order_path(order.id) %>
+          <div class="col-md-1"><br></div>
+      </div>
       
-      <tbody>
-      <% @orders.each do |order| %>
-      <tr>
-        <td><%= link_to order.set_date, admin_order_path(order.id) %></td>
-        
-        <td><%= order.customer.full_name %></td>
-        
+      
+      <div class="col-md-2 mx-auto text-left">
+        <%= order.customer.full_name %>
+          <div class="col-md-1"><br></div>
+      </div>
+      
+      
+      <div class="col-md-2 mx-auto text-left">
         <% order.order_details.each do |order_detail|%>
           <% @order_total += order_detail.amount %>
         <% end %>
-        <td><%= @order_total %></td>
-        
-        <td><%= order.status_i18n %></td>
-        
-      </tr>
-      <% end %>
-      </tbody>
-    </table>
-    
+        <%= @order_total %>
+          <div class="col-md-1"><br></div>
+      </div>
+      
+      
+      <div class="col-md-3 mx-auto text-left">
+        <%= order.status_i18n %>
+        <div class="col-md-1"><br></div>
+      </div>
+      
+      <div class="col-md-1"></div>
     </div>
-  </div>
+  <% end %>
+
 </div>
