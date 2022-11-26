@@ -1,12 +1,14 @@
 <div class="container">
   <div class="row">
     <div class='col-md-2'>
-      <%= render 'admin/genres/search' %>
+      <%= render 'admin/genres/search', genres: @genres %>
     </div>
     <div class='col-md-10'>
-      <div class="mx-auto" style="width: 500px;">
-        <div class="border border-dark">
-          <div class="text-left">
+      <div class="mx-auto">
+        <div class="card">
+        <img src="assets/cake.jpeg", style="width: 100%; height: 300px;">
+        <div class="d-flex justify-content-center align-items-center card-img-overlay">
+          <div class="text-left border border-dark p-3 mb-2 bg-white">
           <p>ようこそ、ながのCAKEへ！</p>
           <p>このサイトは、ケーキ販売ECサイトになります。</p>
           <p>会員でない方の商品の閲覧はできますが、</p>
@@ -14,27 +16,21 @@
           </div>
         </div>
       </div>
-      <div>
+      </div>
         <h1>新着商品</h1>
+        <div class='container-fluid'>
         <div class="row">
-          <div class='col-md-12'>
             <% @items.each do |item| %>
             <div class='col-md-3'>
-              <div>
                 <%= link_to item_path(item.id) do %>
                   <%= image_tag item.image, size: "200x200" %>
-                <% end %>
-              </div>
-              <div>
-                <%= item.name %>
-              </div>
-              <div>
+                <% end %><br>
+                <%= item.name %><br>
                 ￥<%= item.price.to_s(:delimited) %>
-              </div>
             </div>
             <% end %>
             </div>
-          </table>
+            </div>
           <div class="text-right">
             <%= link_to '全ての商品を見る>',items_path %>
           </div>
