@@ -1,28 +1,43 @@
 <div class="container">
-  <div class="row">
-    <div class="col mx-auto">
-      <h3>ログイン</h3>
-
-      <h4>会員の方はこちらからログイン</h4>
+  <div class="row mb-5">
+    <h4 class="col col-md-2 offset-md-2 text-center" style="background-color:#DDD">
+      <strong>ログイン</strong>
+    </h4>
+  </div>
+    <div class="row mb-2">
+      <h5 class="col col-md-4 offset-md-3 text-center" style="background-color:#DDD">
+        <strong>会員の方はこちらからログイン</strong>
+      </h5>
+    </div>
+    <div class="row mb-5 mt-3">
+      <div class="col col-md-8 offset-md-4">
       <%= form_with model: @customer, url: customer_session_path do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
         <div class="field">
-          <label class="email">メールアドレス</label>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@example.com" %>
+          <label class="email">メールアドレス　　　</label>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@example.com", size: 50 %>
         </div>
 
         <div class="field">
-          <label class="password">パスワード</label>
-          <%= f.password_field :password, autocomplete: "current-password" %>
+          <label class="password">パスワード　　　　　</label>
+          <%= f.password_field :password, autocomplete: "current-password", size: 50 %>
         </div>
 
-        <div class="actions">
-          <%= f.submit "ログイン", class:"btn btn-primary" %>
+        <div class="actions mt-5 col-md-1 offset-md-2">
+          <%= f.submit "　ログイン　", class:"btn btn-primary" %>
         </div>
       <% end %>
-
-      <h4>会員登録がお済い方</h4>
-      <p><%= link_to "こちら", new_customer_registration_path %>から新規登録を行ってください。</p>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <h5 class="col col-md-3 offset-md-3 text-center mt-4" style="background-color:#DDD">
+        <strong>会員登録がお済い方</strong>
+      </h5>
+    </div>
+    <div class="row mb-5 mt-3">
+      <div class="col col-md-8 offset-md-4">
+        <p><%= link_to "こちら", new_customer_registration_path %>　から新規登録を行ってください。</p>
+      </div>
     </div>
   </div>
 </div>
