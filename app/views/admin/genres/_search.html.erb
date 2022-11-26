@@ -1,14 +1,14 @@
 <div class = "text-left">
-  <table class="border border-dark">
+  <table class="border border-dark col-10">
     <thead>
-      <tr>
-        <th class="border-bottom border-dark">ジャンル一覧</th>
+      <tr class = "text-center">
+        <th class="border-bottom border-dark " style="height: 40px; background-color:#DDD">ジャンル一覧</th>
       </tr>
     </thead>
     </tbody>
       <% genres.each do |genre| %>
-        <tr>
-        <td><%= link_to genre.name, admin_genre_path(genre.id) %></td>
+        <tr class = "text-center">
+        <td class = "text-secondary border-bottom border-dark" style="height: 40px;"><%= link_to genre.name, admin_genre_path(genre.id), class: "text-dark" %></td>
         </tr>
       <% end %>
     </tbody>
