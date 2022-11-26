@@ -1,23 +1,23 @@
 <div class="container">
-  <div class="row">
-    <div class="col mx-auto">
-      <h3>新規会員登録</h3>
-    </div>
+  <div class="row mb-5">
+    <h4 class="col col-md-2 offset-md-2 text-center" style="background-color:#DDD">
+      <strong>新規会員登録</strong>
+    </h4>
   </div>
   <div class="row">
-    <div class="block-center">
+    <div class="col col-md-8 offset-md-2">
       <%= form_with model: @customer, url: customer_registration_path do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
         <div class="field">
-          <label class="name">名前</label>
+          <label class="name">名前　　　　　　　　　　</label>
           <%= f.label :last_name, "(姓)" %>
           <%= f.text_field :last_name, autofocus: true, placeholder:"令和" %>
-          <%= f.label :first_name, "(名)" %>
+          <%= f.label :first_name, "　(名)" %>
           <%= f.text_field :first_name, placeholder:"道子" %>
         </div>
 
         <div class="field">
-          <label class="kana">フリガナ</label>
+          <label class="kana">フリガナ　　　　　　　</label>
           <%= f.label :last_name_kana, "(セイ)" %>
           <%= f.text_field :last_name_kana, placeholder:"レイワ" %>
           <%= f.label :first_name_kana, "(メイ)" %>
@@ -25,41 +25,51 @@
         </div>
 
         <div class="field">
-          <label class="email">メールアドレス</label>
+          <label class="email">メールアドレス　　　　　　　</label>
           <%= f.email_field :email, placeholder:"sample@example.com" %>
         </div>
 
         <div class="field">
-          <label class="postal_code">郵便番号（ハイフンなし）</label>
+          <label class="postal_code">郵便番号（ハイフンなし）　　</label>
           <%= f.text_field :postal_code, placeholder:"0000000" %>
         </div>
 
         <div class="field">
-          <label class="address">住所</label>
-          <%= f.text_field :address, placeholder:"東京都渋谷区代々木神園町0-0", size: 42 %>
+          <label class="address">住所　　　　　　　　　　　　</label>
+          <%= f.text_field :address, placeholder:"東京都渋谷区代々木神園町0-0", size: 52 %>
         </div>
 
         <div class="field">
-          <label class="telephone_number">電話番号（ハイフンなし）</label>
+          <label class="telephone_number">電話番号（ハイフンなし）　　</label>
           <%= f.text_field :telephone_number, placeholder:"0000000000" %>
         </div>
 
         <div class="field">
-          <label class="password">パスワード（６文字以上）</label>
+          <label class="password">パスワード（６文字以上）　　</label>
           <%= f.password_field :password, autocomplete: "new-password" %>
         </div>
 
         <div class="field">
-          <label class="password_confirmation">パスワード（確認用）</label>
+          <label class="password_confirmation">パスワード（確認用）　　　　</label>
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
 
-        <div class="actions">
-          <%= f.submit "新規登録", class:"btn btn-success" %>
+        <div class="actions mt-3 col-md-1 offset-md-3">
+          <%= f.submit "　　新規登録　　", class:"btn btn-success" %>
         </div>
       <% end %>
-      <h3>既に登録済みの方</h3>
-      <p><%= link_to "こちら", new_customer_session_path %>からログインしてください。</p>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <h4 class="col col-md-3 offset-md-2 text-center mt-4" style="background-color:#DDD">
+          <strong>既に登録済みの方</strong>
+        </h4>
+      </div>
+      <div class="row mb-5 mt-3">
+        <div class="col col-md-8 offset-md-3">
+          <p><%= link_to "こちら", new_customer_session_path %>　からログインしてください。</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
