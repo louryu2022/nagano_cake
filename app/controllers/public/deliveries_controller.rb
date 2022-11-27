@@ -23,7 +23,7 @@ class Public::DeliveriesController < ApplicationController
 
   def update
     @delivery = Delivery.find(params[:id])
-    if @delivery.update(genre_params)
+    if @delivery.update(delivery_params)
       redirect_to deliveries_path(@delivery.id)
     else
       render :edit
