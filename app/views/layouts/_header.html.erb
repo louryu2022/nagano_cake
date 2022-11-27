@@ -5,7 +5,10 @@
           <a href="/"><%= image_tag "image.logo.png", size: "150x150" %></a>
         </div>
       <% if customer_signed_in? %>
-      <div class='col-md-5 offset-md-5 pull-right d-flex align-items-center'>
+      <div class= "col-3 d-flex align-items-center">
+        <p style ="color: white">ようこそ <%= customer.last_name %><%= customer.first_name %>さん</p>
+      </div>
+      <div class='col-md-5 offset-md-2 pull-right d-flex align-items-center'>
         <div class="text-right">
           <button type="button" class="btn btn-light"><%= link_to 'マイページ',customers_my_page_path, class: "text-dark" %></button>
           <button type="button" class="btn btn-light"><%= link_to '商品一覧',items_path, class: "text-dark" %></button>
