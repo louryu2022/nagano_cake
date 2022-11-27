@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+  
+  get "search" => "searches#search"
+  
 scope module: :public do
   root :to =>"homes#top"
   get "about"=>"homes#about"
@@ -37,10 +40,10 @@ end
   namespace :admin do
     resources :items, except: [:destroy]
 
-    resources :genres, only: [:index,:create,:edit,:update]
+    resources :genres, only: [:index,:show,:create,:edit,:update]
 
     resources :customers, only: [:index,:show,:edit,:update]
-  
+
     resources :orders, only: [:show,:update]
 
     resources :order_details, only: [:update]

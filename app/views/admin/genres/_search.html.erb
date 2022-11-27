@@ -1,13 +1,16 @@
-<div class="border border-dark">
-  <div class="border-bottom border-dark">
-    <div class="text-center">
-      <p>ジャンル検索</p>
-    </div>
-  </div>
-  <div class="text-left">
-    <p>ケーキ</p>
-    <p>焼き菓子</p>
-    <p>プリン</p>
-    <p>キャンディ</p>
-  </div>
+<div class = "text-left">
+  <table class="border border-dark col-10">
+    <thead>
+      <tr class = "text-center">
+        <th class="border-bottom border-dark " style="height: 40px; background-color:#DDD">ジャンル一覧</th>
+      </tr>
+    </thead>
+    </tbody>
+      <% genres.each do |genre| %>
+        <tr class = "text-center">
+        <td class = "text-secondary border-bottom border-dark" style="height: 40px;"><%= link_to genre.name, admin_genre_path(genre.id), class: "text-dark" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

@@ -4,4 +4,4 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-Admin.create(email: 'tanaka@tarou', password: 111111)
+Admin.create(email: 'a@a', password: 111111)

@@ -4,6 +4,12 @@ class Admin::GenresController < ApplicationController
     @genre = Genre.new
   end
 
+  def show
+  @items = Item.all
+  @search = Genre.find(params[:id])
+  @searchs = @search.items.page(params[:page]).per(8).order('created_at DESC')
+  end
+
   def create
     @genre = Genre.new(genre_params)
     @genre.save
