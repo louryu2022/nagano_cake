@@ -3,6 +3,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order_details = @order.order_details
     @total = 0
+    @customer = @order.customer
   end
 
   def update
@@ -13,9 +14,9 @@ class Admin::OrdersController < ApplicationController
     end
     redirect_to admin_order_path(@order)
   end
-  
+
   private
-  
+
   def order_params
     params.require(:order).permit(:customer_id, :postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method, :status)
   end
